@@ -1,0 +1,101 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "zackyuaman@gmail.com",
+    "longName": "ChessClock",
+    "projectType": "pebblejs",
+    "resources": {
+        "media": [
+            {
+                "file": "images/menu_icon.png",
+                "name": "IMAGE_MENU_ICON",
+                "type": "png"
+            },
+            {
+                "file": "images/logo_splash.png",
+                "name": "IMAGE_LOGO_SPLASH",
+                "type": "png"
+            },
+            {
+                "file": "images/tile_splash.png",
+                "name": "IMAGE_TILE_SPLASH",
+                "type": "png"
+            },
+            {
+                "file": "fonts/UbuntuMono-Regular.ttf",
+                "name": "MONO_FONT_14",
+                "type": "font"
+            },
+            {
+                "file": "images/bishopW.png",
+                "name": "IMAGES_BISHOPW_PNG",
+                "type": "png"
+            },
+            {
+                "file": "images/knightW.png",
+                "name": "IMAGES_KNIGHTW_PNG",
+                "type": "png"
+            },
+            {
+                "file": "images/rookW.png",
+                "name": "IMAGES_ROOKW_PNG",
+                "type": "png"
+            },
+            {
+                "file": "images/queenW.png",
+                "name": "IMAGES_QUEENW_PNG",
+                "type": "png"
+            },
+            {
+                "file": "images/kingW.png",
+                "menuIcon": true,
+                "name": "IMAGES_KINGW_PNG",
+                "type": "png"
+            },
+            {
+                "file": "images/kingB.png",
+                "name": "IMAGES_KINGB_PNG",
+                "type": "png"
+            },
+            {
+                "file": "images/queenB.png",
+                "name": "IMAGES_QUEENB_PNG",
+                "type": "png"
+            },
+            {
+                "file": "images/bishopB.png",
+                "name": "IMAGES_BISHOPB_PNG",
+                "type": "png"
+            },
+            {
+                "file": "images/knightB.png",
+                "name": "IMAGES_KNIGHTB_PNG",
+                "type": "png"
+            },
+            {
+                "file": "images/pawnW.png",
+                "name": "IMAGES_PAWNW_PNG",
+                "type": "png"
+            },
+            {
+                "file": "images/pawnB.png",
+                "name": "IMAGES_PAWNB_PNG",
+                "type": "png"
+            },
+            {
+                "file": "images/rookB.png",
+                "name": "IMAGES_ROOKB_PNG",
+                "type": "png"
+            }
+        ]
+    },
+    "shortName": "ChessClock",
+    "uuid": "250fe252-5956-4a7d-bf35-15abfbd1eb12",
+    "versionCode": 1,
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": false
+    }
+}
