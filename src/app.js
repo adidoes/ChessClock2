@@ -460,16 +460,42 @@ main.add(pawnW8);
   }
 
 drawBoard();
+main.show();
 // initBoard();
-setBoardPosition(0);
+// setBoardPosition(0);
+
+// drawBoard();
+// setBoardPosition(24);
 // main.show();
 
+var count = 0;
+setInterval(function(){
+  if(count == 48){
+    count = 0;
+  }
+//   main.each(function(element){
+//     main.remove(element);
+//   })
+  
+  
+  drawBoard();
+  setTimeout(function(){
+      setBoardPosition(count);    
+  }, 3000)
 
+  count++;
+}, 6000);
+
+// var pieces = new Array();
 
 function setBoardPosition(move){
+//   drawBoard();
+//   for(var i = 0; i < pieces.length; i++){
+// main.remove(pieces[i]);
+//   }
+  
   var board = new Array();
 board.push('rnbqkb0rpppppppp00000n00000000000000000000000000PPPPPPPPRNBQKBNR');
-/*
 board.push('rnbqkb0rpppppppp00000n000000000000P0000000000000PP0PPPPPRNBQKBNR');
 board.push('rnbqkb0rpp0ppppp00000n0000p0000000P0000000000000PP0PPPPPRNBQKBNR');
 board.push('rnbqkb0rpp0ppppp00000n0000p0000000P0000000N00000PP0PPPPPR0BQKBNR');
@@ -517,9 +543,9 @@ board.push('r0000r00p0000pkp0p00p0p000000000000pQ00000qP00P0P000PPKPRR000000');
 board.push('r0000r00p0000pkp0p00p0p000000000000pQ00000qP00P0P000PPKPR0R00000');
 board.push('r0000r00p0000pkp0p00p0p000000000000pQ000000P00P0Pq00PPKPR0R00000');
 board.push('r0000r00p0000pkp0p00p0p000000000000pQ000000P00P0Pq00PPKPRR000000');
-*/
+
   
-  var boardstring = board[0];
+  var boardstring = board[move];
 //   debugText(boardstring);
   for(var i = 0; i < 64; i++){
     var square = boardstring.charAt(i);
@@ -536,6 +562,7 @@ board.push('r0000r00p0000pkp0p00p0p000000000000pQ000000P00P0Pq00PPKPRR000000');
         image: 'images/pawnW.png'
       })
       main.add(newPawn);
+//       pieces.push(newPawn);
     }
     if(square == 'P'){
       var newPawn = new UI.Image({
@@ -544,6 +571,7 @@ board.push('r0000r00p0000pkp0p00p0p000000000000pQ000000P00P0Pq00PPKPRR000000');
         image: 'images/pawnB.png'
       })
       main.add(newPawn);
+//             pieces.push(newPawn);
     }
                 
     if(square == 'r'){
@@ -553,6 +581,7 @@ board.push('r0000r00p0000pkp0p00p0p000000000000pQ000000P00P0Pq00PPKPRR000000');
         image: 'images/rookW.png'
       })
       main.add(newPawn);
+//             pieces.push(newPawn);
     }
           
           
@@ -564,6 +593,7 @@ board.push('r0000r00p0000pkp0p00p0p000000000000pQ000000P00P0Pq00PPKPRR000000');
         image: 'images/rookB.png'
       })
       main.add(newPawn);
+//            pieces.push(newPawn);
     }
           
     if(square == 'n'){
@@ -573,6 +603,7 @@ board.push('r0000r00p0000pkp0p00p0p000000000000pQ000000P00P0Pq00PPKPRR000000');
         image: 'images/knightW.png'
       })
       main.add(newPawn);
+//             pieces.push(newPawn);
     }
     if(square == 'N'){
       var newPawn = new UI.Image({
@@ -581,6 +612,7 @@ board.push('r0000r00p0000pkp0p00p0p000000000000pQ000000P00P0Pq00PPKPRR000000');
         image: 'images/knightB.png'
       })
       main.add(newPawn);
+//             pieces.push(newPawn);
     }
           
     if(square == 'b'){
@@ -590,6 +622,7 @@ board.push('r0000r00p0000pkp0p00p0p000000000000pQ000000P00P0Pq00PPKPRR000000');
         image: 'images/bishopW.png'
       })
       main.add(newPawn);
+//             pieces.push(newPawn);
     }
     if(square == 'B'){
       var newPawn = new UI.Image({
@@ -598,6 +631,7 @@ board.push('r0000r00p0000pkp0p00p0p000000000000pQ000000P00P0Pq00PPKPRR000000');
         image: 'images/bishopB.png'
       })
       main.add(newPawn);
+//             pieces.push(newPawn);
     }
 
     if(square == 'q'){
@@ -607,6 +641,7 @@ board.push('r0000r00p0000pkp0p00p0p000000000000pQ000000P00P0Pq00PPKPRR000000');
         image: 'images/queenW.png'
       })
       main.add(newPawn);
+//             pieces.push(newPawn);
     }
     if(square == 'Q'){
       var newPawn = new UI.Image({
@@ -615,6 +650,7 @@ board.push('r0000r00p0000pkp0p00p0p000000000000pQ000000P00P0Pq00PPKPRR000000');
         image: 'images/queenB.png'
       })
       main.add(newPawn);
+//             pieces.push(newPawn);
     }
           
     if(square == 'k'){
@@ -624,6 +660,7 @@ board.push('r0000r00p0000pkp0p00p0p000000000000pQ000000P00P0Pq00PPKPRR000000');
         image: 'images/kingW.png'
       })
       main.add(newPawn);
+//             pieces.push(newPawn);
     }
     if(square == 'K'){
       var newPawn = new UI.Image({
@@ -632,6 +669,7 @@ board.push('r0000r00p0000pkp0p00p0p000000000000pQ000000P00P0Pq00PPKPRR000000');
         image: 'images/kingB.png'
       })
       main.add(newPawn);
+//             pieces.push(newPawn);
     }
     }
   }
