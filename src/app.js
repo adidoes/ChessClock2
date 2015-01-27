@@ -9,7 +9,7 @@ var Vector2 = require('vector2');
 
 var main = new UI.Window({});
 
-
+function drawBoard(){
 //draw the board
   var bgRect = new UI.Rect({
     position: new Vector2(0,0),
@@ -23,9 +23,9 @@ var borderBot = new UI.Rect({
   size: new Vector2(144, 24),
   backgroundColor: 'black'
 })
-main.add(borderBot);
-
-var a1 = new UI.Rect({
+main.add(borderBot);  
+  
+  var a1 = new UI.Rect({
   position: new Vector2(0, 126),
   size: new Vector2(18, 18),
   backgroundColor: 'black'
@@ -240,7 +240,11 @@ var h8 = new UI.Rect({
   backgroundColor: 'black'
 })
 main.add(h8);
+}
 
+
+
+function initBoard(){
 /* draw pieces */
 // draw black rooks
 var rookB1 = new UI.Image({
@@ -453,23 +457,204 @@ var pawnW8 = new UI.Image({
   image: 'images/pawnW.png'
 });
 main.add(pawnW8);
+  }
+
+drawBoard();
+// initBoard();
+setBoardPosition(0);
+// main.show();
 
 
 
-main.show();
+function setBoardPosition(move){
+  var board = new Array();
+board.push('rnbqkb0rpppppppp00000n00000000000000000000000000PPPPPPPPRNBQKBNR');
+/*
+board.push('rnbqkb0rpppppppp00000n000000000000P0000000000000PP0PPPPPRNBQKBNR');
+board.push('rnbqkb0rpp0ppppp00000n0000p0000000P0000000000000PP0PPPPPRNBQKBNR');
+board.push('rnbqkb0rpp0ppppp00000n0000p0000000P0000000N00000PP0PPPPPR0BQKBNR');
+board.push('r0bqkb0rpp0ppppp00n00n0000p0000000P0000000N00000PP0PPPPPR0BQKBNR');
+board.push('r0bqkb0rpp0ppppp00n00n0000p0000000P0000000N000P0PP0PPP0PR0BQKBNR');
+board.push('r0bqkb0rpp0ppp0p00n00np000p0000000P0000000N000P0PP0PPP0PR0BQKBNR');
+board.push('r0bqkb0rpp0ppp0p00n00np000p0000000P0000000N000P0PP0PPPBPR0BQK0NR');
+board.push('r0bqk00rpp0pppbp00n00np000p0000000P0000000N000P0PP0PPPBPR0BQK0NR');
+board.push('r0bqk00rpp0pppbp00n00np000p0000000P0000000NP00P0PP00PPBPR0BQK0NR');
+board.push('r0bq0rk0pp0pppbp00n00np000p0000000P0000000NP00P0PP00PPBPR0BQK0NR');
+board.push('r0bq0rk0pp0pppbp00n00np000p0000000P0000000NP0NP0PP00PPBPR0BQK00R');
+board.push('r0bq0rk0pp0p0pbp00n0pnp000p0000000P0000000NP0NP0PP00PPBPR0BQK00R');
+board.push('r0bq0rk0pp0p0pbp00n0pnp000p0000000P0000000NP0NP0PP00PPBPR0BQ0RK0');
+board.push('r0bq0rk0pp000pbp00n0pnp000pp000000P0000000NP0NP0PP00PPBPR0BQ0RK0');
+board.push('r0bq0rk0pp000pbp00n0pnp000pp000000P00B0000NP0NP0PP00PPBPR00Q0RK0');
+board.push('r0bq0rk0p0000pbp0pn0pnp000pp000000P00B0000NP0NP0PP00PPBPR00Q0RK0');
+board.push('r0bq0rk0p0000pbp0pn0pnp000pP000000000B0000NP0NP0PP00PPBPR00Q0RK0');
+board.push('r0bq0rk0p0000pbp0pn0p0p000pn000000000B0000NP0NP0PP00PPBPR00Q0RK0');
+board.push('r0bq0rk0p0000pbp0pn0p0p000pn00B00000000000NP0NP0PP00PPBPR00Q0RK0');
+board.push('r0b00rk0p00q0pbp0pn0p0p000pn00B00000000000NP0NP0PP00PPBPR00Q0RK0');
+board.push('r0b00rk0p00q0pbp0pn0p0p000pn00B00000000000NP0NP0PP00PPBPR0Q00RK0');
+board.push('r0000rk0pb0q0pbp0pn0p0p000pn00B00000000000NP0NP0PP00PPBPR0Q00RK0');
+board.push('r0000rk0pb0q0pbp0pn0p0pB00pn00000000000000NP0NP0PP00PPBPR0Q00RK0');
+board.push('r0000rk0pb0q0pbp0p00p0pB00pn0000000n000000NP0NP0PP00PPBPR0Q00RK0');
+board.push('r0000rk0pb0q0pbp0p00p0pB00pn0000000N000000NP00P0PP00PPBPR0Q00RK0');
+board.push('r0000rk0pb0q0pbp0p00p0pB000n0000000p000000NP00P0PP00PPBPR0Q00RK0');
+board.push('r0000rk0pb0q0pBp0p00p0p0000n0000000p000000NP00P0PP00PPBPR0Q00RK0');
+board.push('r0000r00pb0q0pkp0p00p0p0000n0000000p000000NP00P0PP00PPBPR0Q00RK0');
+board.push('r0000r00pb0q0pkp0p00p0p0000N0000000p0000000P00P0PP00PPBPR0Q00RK0');
+board.push('r0000r00p00q0pkp0p00p0p0000b0000000p0000000P00P0PP00PPBPR0Q00RK0');
+board.push('r0000r00p00q0pkp0p00p0p0000b0000000p0Q00000P00P0PP00PPBPR0000RK0');
+board.push('r0000r00p00q0pkp0p00p0p000000000000p0Q00000P00P0PP00PPbPR0000RK0');
+board.push('r0000r00p00q0pkp0p00p0p000000000000p0Q00000P00P0PP00PPKPR0000R00');
+board.push('r0000r00p0000pkp0p00p0p0000q0000000p0Q00000P00P0PP00PPKPR0000R00');
+board.push('r0000r00p0000pkp0p00p0p0000q0000000p0000000P0QP0PP00PPKPR0000R00');
+board.push('r0000r00p0000pkp0p00p0p00q000000000p0000000P0QP0PP00PPKPR0000R00');
+board.push('r0000r00p0000pkp0p00p0p00q000000000pQ000000P00P0PP00PPKPR0000R00');
+board.push('r0000r00p0000pkp0p00p0p000000000000pQ000000P00P0Pq00PPKPR0000R00');
+board.push('r0000r00p0000pkp0p00p0p000000000000pQ000000P00P0Pq00PPKPRR000000');
+board.push('r0000r00p0000pkp0p00p0p000000000000pQ00000qP00P0P000PPKPRR000000');
+board.push('r0000r00p0000pkp0p00p0p000000000000pQ00000qP00P0P000PPKPR0R00000');
+board.push('r0000r00p0000pkp0p00p0p000000000000pQ000000P00P0Pq00PPKPR0R00000');
+board.push('r0000r00p0000pkp0p00p0p000000000000pQ000000P00P0Pq00PPKPRR000000');
+board.push('r0000r00p0000pkp0p00p0p000000000000pQ00000qP00P0P000PPKPRR000000');
+board.push('r0000r00p0000pkp0p00p0p000000000000pQ00000qP00P0P000PPKPR0R00000');
+board.push('r0000r00p0000pkp0p00p0p000000000000pQ000000P00P0Pq00PPKPR0R00000');
+board.push('r0000r00p0000pkp0p00p0p000000000000pQ000000P00P0Pq00PPKPRR000000');
+*/
+  
+  var boardstring = board[0];
+//   debugText(boardstring);
+  for(var i = 0; i < 64; i++){
+    var square = boardstring.charAt(i);
+        if(square != '0'){
+//     debugText(square);
+    var rank = Math.floor(i / 8);
+    var file = i % 8;
+    var posx = 18*file;
+    var posy = 18*(7-rank);
+    if(square == 'p'){
+      var newPawn = new UI.Image({
+        position: new Vector2(posx, posy),
+        size: new Vector2(18, 18),
+        image: 'images/pawnW.png'
+      })
+      main.add(newPawn);
+    }
+    if(square == 'P'){
+      var newPawn = new UI.Image({
+        position: new Vector2(posx, posy),
+        size: new Vector2(18, 18),
+        image: 'images/pawnB.png'
+      })
+      main.add(newPawn);
+    }
+                
+    if(square == 'r'){
+      var newPawn = new UI.Image({
+        position: new Vector2(posx, posy),
+        size: new Vector2(18, 18),
+        image: 'images/rookW.png'
+      })
+      main.add(newPawn);
+    }
+          
+          
+          
+   if(square == 'R'){
+      var newPawn = new UI.Image({
+        position: new Vector2(posx, posy),
+        size: new Vector2(18, 18),
+        image: 'images/rookB.png'
+      })
+      main.add(newPawn);
+    }
+          
+    if(square == 'n'){
+      var newPawn = new UI.Image({
+        position: new Vector2(posx, posy),
+        size: new Vector2(18, 18),
+        image: 'images/knightW.png'
+      })
+      main.add(newPawn);
+    }
+    if(square == 'N'){
+      var newPawn = new UI.Image({
+        position: new Vector2(posx, posy),
+        size: new Vector2(18, 18),
+        image: 'images/knightB.png'
+      })
+      main.add(newPawn);
+    }
+          
+    if(square == 'b'){
+      var newPawn = new UI.Image({
+        position: new Vector2(posx, posy),
+        size: new Vector2(18, 18),
+        image: 'images/bishopW.png'
+      })
+      main.add(newPawn);
+    }
+    if(square == 'B'){
+      var newPawn = new UI.Image({
+        position: new Vector2(posx, posy),
+        size: new Vector2(18, 18),
+        image: 'images/bishopB.png'
+      })
+      main.add(newPawn);
+    }
 
-// main.on('click', 'select', function(e) {
-//   var wind = new UI.Window();
-//   var textfield = new UI.Text({
-//     position: new Vector2(0, 50),
-//     size: new Vector2(144, 30),
-//     font: 'gothic-24-bold',
-//     text: 'Text Anywhere!',
-//     textAlign: 'center'
-//   });
-//   wind.add(textfield);
-//   wind.show();
-// });
+    if(square == 'q'){
+      var newPawn = new UI.Image({
+        position: new Vector2(posx, posy),
+        size: new Vector2(18, 18),
+        image: 'images/queenW.png'
+      })
+      main.add(newPawn);
+    }
+    if(square == 'Q'){
+      var newPawn = new UI.Image({
+        position: new Vector2(posx, posy),
+        size: new Vector2(18, 18),
+        image: 'images/queenB.png'
+      })
+      main.add(newPawn);
+    }
+          
+    if(square == 'k'){
+      var newPawn = new UI.Image({
+        position: new Vector2(posx, posy),
+        size: new Vector2(18, 18),
+        image: 'images/kingW.png'
+      })
+      main.add(newPawn);
+    }
+    if(square == 'K'){
+      var newPawn = new UI.Image({
+        position: new Vector2(posx, posy),
+        size: new Vector2(18, 18),
+        image: 'images/kingB.png'
+      })
+      main.add(newPawn);
+    }
+    }
+  }
+            main.show();
+}
+
+
+
+
+
+
+function debugText(text){
+  var wind = new UI.Window();
+  var textfield = new UI.Text({
+    position: new Vector2(0, 50),
+    size: new Vector2(144, 30),
+    font: 'gothic-24-bold',
+    text: text,
+    textAlign: 'center'
+  });
+  wind.add(textfield);
+  wind.show();
+};
 
 // main.on('click', 'up', function(e) {
 //   var menu = new UI.Menu({
